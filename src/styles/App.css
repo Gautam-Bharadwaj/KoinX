@@ -1,0 +1,252 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+
+.main {
+  flex: 1;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--space-md) 80px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.main__title-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 8px 0;
+}
+
+.main__title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+  color: var(--color-text);
+}
+
+.main__how-it-works {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: underline;
+  color: var(--color-primary);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px 0;
+}
+
+.how-it-works-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  position: absolute;
+  width: 410px;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%) translateY(10px);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-fast);
+  pointer-events: none;
+}
+
+.how-it-works-container:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0px);
+}
+
+.tooltip__beak {
+  width: 12px;
+  height: 6px;
+  background: #0F172A;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.tooltip__content {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px;
+  background: #0F172A;
+  border-radius: 8px;
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+}
+
+.tooltip__list {
+  margin: 0;
+  padding-left: 20px;
+  color: #FFFFFF;
+  font-family: 'Inter';
+  font-size: 12px;
+  line-height: 18px;
+  margin-bottom: 8px;
+}
+
+.tooltip__list li {
+  margin-bottom: 4px;
+}
+
+.tooltip__pro-tip {
+  margin: 0;
+  color: #FFFFFF;
+  font-family: 'Inter';
+  font-size: 12px;
+  line-height: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 8px;
+}
+
+.tooltip__pro-tip strong {
+  font-weight: 600;
+}
+
+[data-theme="dark"] .tooltip__beak {
+  background: #FFFFFF;
+}
+
+[data-theme="dark"] .tooltip__content {
+  background: #FFFFFF;
+}
+
+[data-theme="dark"] .tooltip__list,
+[data-theme="dark"] .tooltip__pro-tip {
+  color: #171A26;
+}
+
+[data-theme="dark"] .tooltip__pro-tip {
+  border-top-color: rgba(23, 26, 38, 0.1);
+}
+
+.disclaimer-bar {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background: var(--disclaimer-bg);
+  border: 1px solid var(--disclaimer-border);
+  border-radius: var(--radius-md);
+  gap: 12px;
+  transition: all var(--transition-base);
+}
+
+.disclaimer-bar__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.disclaimer-bar__icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: var(--disclaimer-icon);
+}
+
+.disclaimer-bar__text {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--color-text);
+  flex: 1;
+}
+
+.disclaimer-bar__toggle {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  cursor: pointer;
+  color: var(--disclaimer-toggle);
+  transition: transform var(--transition-base);
+}
+
+.disclaimer-bar__toggle.is-rotated {
+  transform: rotate(180deg);
+}
+
+.disclaimer-bar__content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.disclaimer-bar__content p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--color-text);
+  margin: 0;
+  letter-spacing: 0.1px;
+}
+
+.cards-section {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: stretch;
+}
+
+.footer {
+  text-align: center;
+  padding: var(--space-md);
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 1024px) {
+  .main {
+    padding: var(--space-md) var(--space-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: var(--space-md) 16px;
+  }
+  
+  .main__title {
+    font-size: 20px;
+  }
+
+  .cards-section {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  
+  .tooltip {
+    width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main__title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .main__how-it-works {
+    padding: 0;
+  }
+  
+  .disclaimer-bar__text {
+    font-size: 14px;
+  }
+}

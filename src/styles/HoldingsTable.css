@@ -1,0 +1,370 @@
+.ht {
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  border-radius: 9.81818px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ht__title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.ht__title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 26px;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* Table Layout */
+.ht__wrapper {
+  overflow-x: auto;
+}
+
+.ht__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ht__header {
+  background: var(--color-surface-header);
+  height: 48px;
+}
+
+.ht__th {
+  padding: 0 16px;
+  text-align: right;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.1px;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.ht__th--sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.ht__th--sortable:hover {
+  opacity: 0.8;
+}
+
+.ht__th-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.ht__sort-arrow {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+  color: #AEBDD2;
+}
+
+.ht__sort-arrow.asc {
+  transform: rotate(180deg);
+}
+
+.ht__th--checkbox {
+  width: 48px;
+  text-align: center;
+  padding: 0;
+}
+
+.ht__th--asset {
+  text-align: left;
+  padding-left: 16px;
+}
+
+.ht__th-sub {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* Rows */
+.ht__row {
+  height: 64px;
+  border-bottom: 1px solid var(--color-border);
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.ht__row:hover {
+  background: var(--ht-row-hover);
+}
+
+.ht__row--selected {
+  background: var(--ht-row-selected) !important;
+}
+
+.ht__cell {
+  padding: 0 16px;
+  vertical-align: middle;
+}
+
+.ht__cell--checkbox {
+  padding: 0;
+  text-align: center;
+}
+
+/* Asset Cell */
+.ht__asset {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ht__asset-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.ht__asset-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.ht__asset-name {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--color-text);
+}
+
+.ht__asset-symbol {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-text-muted);
+}
+
+/* Detail Stacks */
+.ht__cell-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.ht__holdings-amount,
+.ht__total-value,
+.ht__sell-amount,
+.ht__gain--profit,
+.ht__gain--loss {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--color-text);
+}
+
+.ht__gain--profit {
+  color: var(--color-profit);
+}
+
+.ht__gain--loss {
+  color: var(--color-loss);
+}
+
+.ht__holdings-rate,
+.ht__holdings-rate-tooltip {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* Tooltips for values */
+.value-tooltip-container {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.value-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(5px);
+  background: #FFFFFF;
+  color: #0F172A;
+  /* Dark text on white */
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] .value-tooltip {
+  background: #FFFFFF;
+  /* High contrast white tooltip even in dark mode */
+  color: #0F172A;
+}
+
+.value-tooltip__beak {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #FFFFFF;
+}
+
+.value-tooltip-container:hover .value-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.ht__holdings-rate-tooltip {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.ht__gain--profit {
+  color: var(--color-profit);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.ht__gain--loss {
+  color: var(--color-loss);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+/* Custom Checkbox */
+.ht__checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+}
+
+.ht__checkbox {
+  position: absolute;
+  opacity: 0;
+}
+
+.ht__checkmark {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--ht-checkbox-border);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.ht__checkmark.is-checked {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.ht__checkmark svg {
+  width: 14px;
+  height: 14px;
+  color: white;
+}
+
+[data-theme="dark"] .ht__checkmark svg {
+  color: var(--color-surface);
+}
+
+/* View All */
+.ht__view-toggle {
+  margin-top: 15px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--color-primary);
+  text-decoration: underline;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .ht__filters {
+    display: none;
+    /* Hide placeholder filters on small screens to save space */
+  }
+}
+
+@media (max-width: 768px) {
+  .ht {
+    padding: 12px;
+  }
+
+  .ht__th,
+  .ht__cell {
+    padding: 0 12px;
+  }
+
+  .ht__th {
+    font-size: 14px;
+  }
+
+  .ht__asset-name {
+    font-size: 14px;
+  }
+
+  .ht__asset-symbol {
+    font-size: 12px;
+  }
+
+  .ht__holdings-amount,
+  .ht__total-value,
+  .ht__sell-amount,
+  .ht__gain--profit,
+  .ht__gain--loss {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ht__title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .ht__th,
+  .ht__cell {
+    padding: 0 8px;
+  }
+
+  .ht__wrapper {
+    margin: 0 -8px;
+    padding: 0 8px;
+  }
+
+  /* Ensure the table doesn't get squashed */
+  .ht__table {
+    min-width: 700px;
+  }
+}

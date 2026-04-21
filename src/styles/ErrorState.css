@@ -1,0 +1,44 @@
+/*  Error State                                          */
+
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: var(--space-md);
+  padding: var(--space-xl);
+  text-align: center;
+  background: var(--color-bg);
+}
+
+.error-icon {
+  font-size: 3rem;
+}
+
+.error-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.error-message {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  max-width: 400px;
+}
+
+.error-retry-btn {
+  margin-top: var(--space-sm);
+  padding: var(--space-sm) var(--space-xl);
+  background: var(--color-primary);
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-base);
+}
+
+.error-retry-btn:hover {
+  background: #003ECE;
+}
