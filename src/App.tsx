@@ -3,7 +3,6 @@ import { CapitalGains, Holding } from './types';
 import { fetchCapitalGains, fetchHoldings } from './api';
 import CapitalGainsCard from './components/CapitalGainsCard';
 import HoldingsTable from './components/HoldingsTable';
-import Navbar from './components/Navbar';
 
 function App() {
   const [baseGains, setBaseGains] = useState<CapitalGains | null>(null);

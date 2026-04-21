@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Holding } from '../types';
-import { formatCurrency, formatCurrencyShort, formatFullCurrency, formatHolding, gainClass } from '../utils';
+import { formatCurrencyShort, formatFullCurrency, formatHolding } from '../utils';
 
 interface Props {
   holdings: Holding[];
