@@ -13,15 +13,6 @@ interface Props {
 
 const INITIAL_VISIBLE = 5;
 
-const DefaultLogo: React.FC<{ coin: string }> = ({ coin }) => (
-  <div
-    className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0"
-    style={{ background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)' }}
-  >
-    {coin.slice(0, 2).toUpperCase()}
-  </div>
-);
-
 const HoldingsTable: React.FC<Props> = ({ holdings, selected, onToggle, onToggleMultiple, onToggleAll, loading }) => {
   const [showAll, setShowAll] = useState(false);
   const allSelected = holdings.length > 0 && selected.size === holdings.length;

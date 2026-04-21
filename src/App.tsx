@@ -213,8 +213,8 @@ function App() {
       <footer className="max-w-7xl mx-auto px-6 py-8 border-t border-white/5 flex items-center justify-between text-slate-500 text-xs">
         <p>© 2024 KoinX Inc. All rights reserved.</p>
         <div className="flex gap-4">
-          <a href="#" className="hover:text-blue-400">Terms</a>
-          <a href="#" className="hover:text-blue-400">Privacy</a>
+          <a href="#terms" className="hover:text-blue-400">Terms</a>
+          <a href="#privacy" className="hover:text-blue-400">Privacy</a>
         </div>
       </footer>
     </div>

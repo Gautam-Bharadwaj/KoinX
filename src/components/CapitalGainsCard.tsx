@@ -10,10 +10,6 @@ interface Props {
   loading?: boolean;
 }
 
-function SkeletonLine({ width = 'w-24' }: { width?: string }) {
-  return <div className={`skeleton h-4 ${width}`} />;
-}
-
 const CapitalGainsCard: React.FC<Props> = ({ title, gains, variant, savings, loading }) => {
   const stcgNet = gains.stcg.profits - gains.stcg.losses;
   const ltcgNet = gains.ltcg.profits - gains.ltcg.losses;
